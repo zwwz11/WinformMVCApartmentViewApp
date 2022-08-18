@@ -36,6 +36,7 @@
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
             this.gcList = new DevExpress.XtraGrid.GridControl();
             this.gvList = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colNo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colApartmentName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBuildYear = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAreaForExclusiveUse = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -50,7 +51,6 @@
             this.colRegionalCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCancelDealDay = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCancelDealType = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNo = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.comboLAWD_CD.Properties)).BeginInit();
@@ -173,6 +173,22 @@
             this.gvList.OptionsBehavior.Editable = false;
             this.gvList.OptionsView.ShowGroupPanel = false;
             this.gvList.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gvList_CustomColumnDisplayText);
+            // 
+            // colNo
+            // 
+            this.colNo.AppearanceCell.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.colNo.AppearanceCell.Options.UseFont = true;
+            this.colNo.AppearanceCell.Options.UseTextOptions = true;
+            this.colNo.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colNo.AppearanceHeader.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.colNo.AppearanceHeader.Options.UseFont = true;
+            this.colNo.AppearanceHeader.Options.UseTextOptions = true;
+            this.colNo.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colNo.Caption = "순번";
+            this.colNo.FieldName = "No";
+            this.colNo.Name = "colNo";
+            this.colNo.Visible = true;
+            this.colNo.VisibleIndex = 0;
             // 
             // colApartmentName
             // 
@@ -395,22 +411,6 @@
             this.colCancelDealType.VisibleIndex = 10;
             this.colCancelDealType.Width = 221;
             // 
-            // colNo
-            // 
-            this.colNo.AppearanceCell.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.colNo.AppearanceCell.Options.UseFont = true;
-            this.colNo.AppearanceCell.Options.UseTextOptions = true;
-            this.colNo.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colNo.AppearanceHeader.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.colNo.AppearanceHeader.Options.UseFont = true;
-            this.colNo.AppearanceHeader.Options.UseTextOptions = true;
-            this.colNo.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colNo.Caption = "순번";
-            this.colNo.FieldName = "No";
-            this.colNo.Name = "colNo";
-            this.colNo.Visible = true;
-            this.colNo.VisibleIndex = 0;
-            // 
             // ListViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -419,6 +419,7 @@
             this.Controls.Add(this.gcList);
             this.Controls.Add(this.panelControl1);
             this.Name = "ListViewForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ListViewForm";
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);

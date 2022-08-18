@@ -81,7 +81,7 @@ namespace ApartmentViewApp.Controller
             }
             catch (Exception ex)
             {
-                throw ex;
+                view.ShowMessageBox(ex.Message);
             }
         }
 
