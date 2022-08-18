@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.comboLAWD_CD = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.deDEAL_YMD = new DevExpress.XtraEditors.DateEdit();
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
@@ -38,6 +40,8 @@
             this.colBuildYear = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAreaForExclusiveUse = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFloor = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDear = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDealYear = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDealMonth = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDealDay = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDong = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -46,17 +50,14 @@
             this.colRegionalCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCancelDealDay = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCancelDealType = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.comboLAWD_CD = new DevExpress.XtraEditors.ImageComboBoxEdit();
-            this.colDealYear = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDear = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNo = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboLAWD_CD.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deDEAL_YMD.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deDEAL_YMD.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboLAWD_CD.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -71,6 +72,32 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1150, 46);
             this.panelControl1.TabIndex = 0;
+            // 
+            // comboLAWD_CD
+            // 
+            this.comboLAWD_CD.Location = new System.Drawing.Point(230, 13);
+            this.comboLAWD_CD.Name = "comboLAWD_CD";
+            this.comboLAWD_CD.Properties.Appearance.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.comboLAWD_CD.Properties.Appearance.Options.UseFont = true;
+            this.comboLAWD_CD.Properties.Appearance.Options.UseTextOptions = true;
+            this.comboLAWD_CD.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.comboLAWD_CD.Properties.AppearanceDropDown.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.comboLAWD_CD.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.comboLAWD_CD.Properties.AppearanceDropDown.Options.UseTextOptions = true;
+            this.comboLAWD_CD.Properties.AppearanceDropDown.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.comboLAWD_CD.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboLAWD_CD.Size = new System.Drawing.Size(138, 22);
+            this.comboLAWD_CD.TabIndex = 4;
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.labelControl2.Location = new System.Drawing.Point(200, 16);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(24, 15);
+            this.labelControl2.TabIndex = 3;
+            this.labelControl2.Text = "지역";
             // 
             // labelControl1
             // 
@@ -126,6 +153,7 @@
             // gvList
             // 
             this.gvList.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colNo,
             this.colApartmentName,
             this.colBuildYear,
             this.colAreaForExclusiveUse,
@@ -144,6 +172,7 @@
             this.gvList.Name = "gvList";
             this.gvList.OptionsBehavior.Editable = false;
             this.gvList.OptionsView.ShowGroupPanel = false;
+            this.gvList.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gvList_CustomColumnDisplayText);
             // 
             // colApartmentName
             // 
@@ -157,8 +186,8 @@
             this.colApartmentName.FieldName = "ApartmentName";
             this.colApartmentName.Name = "colApartmentName";
             this.colApartmentName.Visible = true;
-            this.colApartmentName.VisibleIndex = 2;
-            this.colApartmentName.Width = 306;
+            this.colApartmentName.VisibleIndex = 3;
+            this.colApartmentName.Width = 319;
             // 
             // colBuildYear
             // 
@@ -174,8 +203,8 @@
             this.colBuildYear.FieldName = "BuildYear";
             this.colBuildYear.Name = "colBuildYear";
             this.colBuildYear.Visible = true;
-            this.colBuildYear.VisibleIndex = 1;
-            this.colBuildYear.Width = 90;
+            this.colBuildYear.VisibleIndex = 2;
+            this.colBuildYear.Width = 93;
             // 
             // colAreaForExclusiveUse
             // 
@@ -191,8 +220,8 @@
             this.colAreaForExclusiveUse.FieldName = "AreaForExclusiveUse";
             this.colAreaForExclusiveUse.Name = "colAreaForExclusiveUse";
             this.colAreaForExclusiveUse.Visible = true;
-            this.colAreaForExclusiveUse.VisibleIndex = 5;
-            this.colAreaForExclusiveUse.Width = 130;
+            this.colAreaForExclusiveUse.VisibleIndex = 6;
+            this.colAreaForExclusiveUse.Width = 135;
             // 
             // colFloor
             // 
@@ -208,8 +237,37 @@
             this.colFloor.FieldName = "Floor";
             this.colFloor.Name = "colFloor";
             this.colFloor.Visible = true;
-            this.colFloor.VisibleIndex = 4;
-            this.colFloor.Width = 57;
+            this.colFloor.VisibleIndex = 5;
+            this.colFloor.Width = 59;
+            // 
+            // colDear
+            // 
+            this.colDear.AppearanceCell.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.colDear.AppearanceCell.Options.UseFont = true;
+            this.colDear.AppearanceCell.Options.UseTextOptions = true;
+            this.colDear.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDear.AppearanceHeader.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.colDear.AppearanceHeader.Options.UseFont = true;
+            this.colDear.AppearanceHeader.Options.UseTextOptions = true;
+            this.colDear.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDear.Caption = "거래날짜";
+            this.colDear.FieldName = "Dear";
+            this.colDear.Name = "colDear";
+            this.colDear.Visible = true;
+            this.colDear.VisibleIndex = 7;
+            this.colDear.Width = 217;
+            // 
+            // colDealYear
+            // 
+            this.colDealYear.AppearanceCell.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.colDealYear.AppearanceCell.Options.UseFont = true;
+            this.colDealYear.AppearanceHeader.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.colDealYear.AppearanceHeader.Options.UseFont = true;
+            this.colDealYear.AppearanceHeader.Options.UseTextOptions = true;
+            this.colDealYear.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDealYear.Caption = "년";
+            this.colDealYear.FieldName = "DealYear";
+            this.colDealYear.Name = "colDealYear";
             // 
             // colDealMonth
             // 
@@ -255,8 +313,8 @@
             this.colDong.FieldName = "Dong";
             this.colDong.Name = "colDong";
             this.colDong.Visible = true;
-            this.colDong.VisibleIndex = 0;
-            this.colDong.Width = 111;
+            this.colDong.VisibleIndex = 1;
+            this.colDong.Width = 115;
             // 
             // colDealAmount
             // 
@@ -272,8 +330,8 @@
             this.colDealAmount.FieldName = "DealAmount";
             this.colDealAmount.Name = "colDealAmount";
             this.colDealAmount.Visible = true;
-            this.colDealAmount.VisibleIndex = 7;
-            this.colDealAmount.Width = 142;
+            this.colDealAmount.VisibleIndex = 8;
+            this.colDealAmount.Width = 148;
             // 
             // colJibun
             // 
@@ -289,8 +347,8 @@
             this.colJibun.FieldName = "Jibun";
             this.colJibun.Name = "colJibun";
             this.colJibun.Visible = true;
-            this.colJibun.VisibleIndex = 3;
-            this.colJibun.Width = 98;
+            this.colJibun.VisibleIndex = 4;
+            this.colJibun.Width = 102;
             // 
             // colRegionalCode
             // 
@@ -319,8 +377,8 @@
             this.colCancelDealDay.FieldName = "CancelDealDay";
             this.colCancelDealDay.Name = "colCancelDealDay";
             this.colCancelDealDay.Visible = true;
-            this.colCancelDealDay.VisibleIndex = 8;
-            this.colCancelDealDay.Width = 142;
+            this.colCancelDealDay.VisibleIndex = 9;
+            this.colCancelDealDay.Width = 148;
             // 
             // colCancelDealType
             // 
@@ -334,63 +392,24 @@
             this.colCancelDealType.FieldName = "CancelDealType";
             this.colCancelDealType.Name = "colCancelDealType";
             this.colCancelDealType.Visible = true;
-            this.colCancelDealType.VisibleIndex = 9;
-            this.colCancelDealType.Width = 205;
+            this.colCancelDealType.VisibleIndex = 10;
+            this.colCancelDealType.Width = 221;
             // 
-            // labelControl2
+            // colNo
             // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.labelControl2.Location = new System.Drawing.Point(200, 16);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(24, 15);
-            this.labelControl2.TabIndex = 3;
-            this.labelControl2.Text = "지역";
-            // 
-            // comboLAWD_CD
-            // 
-            this.comboLAWD_CD.Location = new System.Drawing.Point(230, 13);
-            this.comboLAWD_CD.Name = "comboLAWD_CD";
-            this.comboLAWD_CD.Properties.Appearance.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.comboLAWD_CD.Properties.Appearance.Options.UseFont = true;
-            this.comboLAWD_CD.Properties.Appearance.Options.UseTextOptions = true;
-            this.comboLAWD_CD.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.comboLAWD_CD.Properties.AppearanceDropDown.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.comboLAWD_CD.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.comboLAWD_CD.Properties.AppearanceDropDown.Options.UseTextOptions = true;
-            this.comboLAWD_CD.Properties.AppearanceDropDown.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.comboLAWD_CD.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboLAWD_CD.Size = new System.Drawing.Size(138, 22);
-            this.comboLAWD_CD.TabIndex = 4;
-            // 
-            // colDealYear
-            // 
-            this.colDealYear.AppearanceCell.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.colDealYear.AppearanceCell.Options.UseFont = true;
-            this.colDealYear.AppearanceHeader.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.colDealYear.AppearanceHeader.Options.UseFont = true;
-            this.colDealYear.AppearanceHeader.Options.UseTextOptions = true;
-            this.colDealYear.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colDealYear.Caption = "년";
-            this.colDealYear.FieldName = "DealYear";
-            this.colDealYear.Name = "colDealYear";
-            // 
-            // colDear
-            // 
-            this.colDear.AppearanceCell.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.colDear.AppearanceCell.Options.UseFont = true;
-            this.colDear.AppearanceCell.Options.UseTextOptions = true;
-            this.colDear.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colDear.AppearanceHeader.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.colDear.AppearanceHeader.Options.UseFont = true;
-            this.colDear.AppearanceHeader.Options.UseTextOptions = true;
-            this.colDear.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colDear.Caption = "거래날짜";
-            this.colDear.FieldName = "Dear";
-            this.colDear.Name = "colDear";
-            this.colDear.Visible = true;
-            this.colDear.VisibleIndex = 6;
-            this.colDear.Width = 209;
+            this.colNo.AppearanceCell.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.colNo.AppearanceCell.Options.UseFont = true;
+            this.colNo.AppearanceCell.Options.UseTextOptions = true;
+            this.colNo.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colNo.AppearanceHeader.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.colNo.AppearanceHeader.Options.UseFont = true;
+            this.colNo.AppearanceHeader.Options.UseTextOptions = true;
+            this.colNo.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colNo.Caption = "순번";
+            this.colNo.FieldName = "No";
+            this.colNo.Name = "colNo";
+            this.colNo.Visible = true;
+            this.colNo.VisibleIndex = 0;
             // 
             // ListViewForm
             // 
@@ -404,11 +423,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboLAWD_CD.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deDEAL_YMD.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deDEAL_YMD.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboLAWD_CD.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -437,5 +456,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraGrid.Columns.GridColumn colDear;
         private DevExpress.XtraGrid.Columns.GridColumn colDealYear;
+        private DevExpress.XtraGrid.Columns.GridColumn colNo;
     }
 }

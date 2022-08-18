@@ -67,5 +67,12 @@ namespace ApartmentViewApp
             controller.Search();
         }
 
+        private void gvList_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
+        {
+            if (e.Column.FieldName != "No")
+                return;
+
+            e.DisplayText = $"{e.ListSourceRowIndex + 1}";
+        }
     }
 }

@@ -39,7 +39,7 @@ namespace ApartmentViewApp.Controller
                 string xmlString = string.Empty;
                 ApartmentRequestParam param = new ApartmentRequestParam();
                 param.PageNo = "1";
-                param.NumOfRows = "100";
+                param.NumOfRows = "10000";
                 param.LAWD_CD = $"{view.LAWD_CD}";
                 param.DEAL_YMD = view.DEAL_YMD.ToString("yyyyMM");
 
