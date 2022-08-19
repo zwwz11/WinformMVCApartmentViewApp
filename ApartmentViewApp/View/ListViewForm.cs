@@ -19,6 +19,9 @@ using WinformMVCExample.CommonInterface;
 using ApartmentViewApp.Model;
 using DevExpress.XtraGrid;
 using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraSplashScreen;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace ApartmentViewApp
 {
@@ -28,8 +31,18 @@ namespace ApartmentViewApp
         private string targetURL = string.Empty;
         private string serviceKey = string.Empty;
 
-        public DateTime DEAL_YMD { get { return deDEAL_YMD.DateTime; } }
-        public object LAWD_CD { get { return comboLAWD_CD.EditValue; } }
+        public DateTime DEAL_YMD => deDEAL_YMD.DateTime;
+        public object LAWD_CD => comboLAWD_CD.EditValue;
+        public string ApartmentName
+        {
+            get { return txtApartmentName.Text; }
+            set { txtApartmentName.Text = value; }
+        }
+        public SplashScreenManager splash
+        {
+            get { return splashScreenManager; }
+            set { splashScreenManager = value; }
+        }
 
         public ListViewForm()
         {
@@ -66,13 +79,24 @@ namespace ApartmentViewApp
         {
             controller.Search();
         }
+        private void btnTrendChart_Click(object sender, EventArgs e)
+        {
+            controller.LoadTrendViewForm();
+        }
+        private void gvList_RowClick(object sender, RowClickEventArgs e)
+        {
+            if(e.Clicks > 1)
+            {
 
-        private void gvList_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
+            }
+        }
+        private void gvList_CustomColumnDisplayText(object sender, CustomColumnDisplayTextEventArgs e)
         {
             if (e.Column.FieldName != "No")
                 return;
 
             e.DisplayText = $"{e.ListSourceRowIndex + 1}";
         }
+
     }
 }

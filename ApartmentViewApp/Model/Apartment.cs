@@ -39,7 +39,7 @@ namespace ApartmentViewApp.Model
         /// <summary>
         /// 거래금액
         /// </summary>
-        public string DealAmount { get; set; }
+        public int DealAmount { get; set; }
         /// <summary>
         /// 거래(년)
         /// </summary>
@@ -60,6 +60,10 @@ namespace ApartmentViewApp.Model
         /// 해제사유발생일
         /// </summary>
         public string CancelDealDay { get; set; }
+        /// <summary>
+        /// 거래날짜
+        /// </summary>
+        public string Deal { get { return $"{DealYear}-{int.Parse(DealMonth):00}-{int.Parse(DealDay):00}"; } }
 
     }
 }

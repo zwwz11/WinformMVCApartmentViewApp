@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnTrendChart = new DevExpress.XtraEditors.SimpleButton();
+            this.txtApartmentName = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.comboLAWD_CD = new DevExpress.XtraEditors.ImageComboBoxEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -41,7 +44,7 @@
             this.colBuildYear = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAreaForExclusiveUse = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFloor = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDear = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDeal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDealYear = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDealMonth = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDealDay = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -51,17 +54,24 @@
             this.colRegionalCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCancelDealDay = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCancelDealType = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ApartmentViewApp.View.SearchWaitForm), true, true);
+            this.repositoryItemDealAmount = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtApartmentName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboLAWD_CD.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deDEAL_YMD.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deDEAL_YMD.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDealAmount)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.btnTrendChart);
+            this.panelControl1.Controls.Add(this.txtApartmentName);
+            this.panelControl1.Controls.Add(this.labelControl3);
             this.panelControl1.Controls.Add(this.comboLAWD_CD);
             this.panelControl1.Controls.Add(this.labelControl2);
             this.panelControl1.Controls.Add(this.labelControl1);
@@ -73,9 +83,38 @@
             this.panelControl1.Size = new System.Drawing.Size(1150, 46);
             this.panelControl1.TabIndex = 0;
             // 
+            // btnTrendChart
+            // 
+            this.btnTrendChart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTrendChart.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnTrendChart.Location = new System.Drawing.Point(868, 8);
+            this.btnTrendChart.Name = "btnTrendChart";
+            this.btnTrendChart.Size = new System.Drawing.Size(132, 30);
+            this.btnTrendChart.TabIndex = 7;
+            this.btnTrendChart.Text = "Trend Chart";
+            this.btnTrendChart.Click += new System.EventHandler(this.btnTrendChart_Click);
+            // 
+            // txtApartmentName
+            // 
+            this.txtApartmentName.Location = new System.Drawing.Point(455, 13);
+            this.txtApartmentName.Name = "txtApartmentName";
+            this.txtApartmentName.Properties.Appearance.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.txtApartmentName.Properties.Appearance.Options.UseFont = true;
+            this.txtApartmentName.Size = new System.Drawing.Size(204, 22);
+            this.txtApartmentName.TabIndex = 6;
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.labelControl3.Location = new System.Drawing.Point(413, 16);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(36, 15);
+            this.labelControl3.TabIndex = 5;
+            this.labelControl3.Text = "아파트";
+            // 
             // comboLAWD_CD
             // 
-            this.comboLAWD_CD.Location = new System.Drawing.Point(230, 13);
+            this.comboLAWD_CD.Location = new System.Drawing.Point(250, 13);
             this.comboLAWD_CD.Name = "comboLAWD_CD";
             this.comboLAWD_CD.Properties.Appearance.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.comboLAWD_CD.Properties.Appearance.Options.UseFont = true;
@@ -93,7 +132,7 @@
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.labelControl2.Location = new System.Drawing.Point(200, 16);
+            this.labelControl2.Location = new System.Drawing.Point(220, 16);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(24, 15);
             this.labelControl2.TabIndex = 3;
@@ -104,14 +143,14 @@
             this.labelControl1.Appearance.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.labelControl1.Location = new System.Drawing.Point(23, 16);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(48, 15);
+            this.labelControl1.Size = new System.Drawing.Size(68, 15);
             this.labelControl1.TabIndex = 2;
-            this.labelControl1.Text = "거래년월";
+            this.labelControl1.Text = "거래일자(년)";
             // 
             // deDEAL_YMD
             // 
             this.deDEAL_YMD.EditValue = null;
-            this.deDEAL_YMD.Location = new System.Drawing.Point(77, 13);
+            this.deDEAL_YMD.Location = new System.Drawing.Point(97, 13);
             this.deDEAL_YMD.Name = "deDEAL_YMD";
             this.deDEAL_YMD.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.deDEAL_YMD.Properties.Appearance.Font = new System.Drawing.Font("맑은 고딕", 9F);
@@ -122,9 +161,9 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deDEAL_YMD.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deDEAL_YMD.Properties.Mask.EditMask = "yyyy-MM";
+            this.deDEAL_YMD.Properties.Mask.EditMask = "yyyy";
             this.deDEAL_YMD.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.deDEAL_YMD.Properties.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.YearView;
+            this.deDEAL_YMD.Properties.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.YearsGroupView;
             this.deDEAL_YMD.Size = new System.Drawing.Size(100, 22);
             this.deDEAL_YMD.TabIndex = 1;
             // 
@@ -145,6 +184,8 @@
             this.gcList.Location = new System.Drawing.Point(0, 46);
             this.gcList.MainView = this.gvList;
             this.gcList.Name = "gcList";
+            this.gcList.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemDealAmount});
             this.gcList.Size = new System.Drawing.Size(1150, 446);
             this.gcList.TabIndex = 1;
             this.gcList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -158,7 +199,7 @@
             this.colBuildYear,
             this.colAreaForExclusiveUse,
             this.colFloor,
-            this.colDear,
+            this.colDeal,
             this.colDealYear,
             this.colDealMonth,
             this.colDealDay,
@@ -172,6 +213,7 @@
             this.gvList.Name = "gvList";
             this.gvList.OptionsBehavior.Editable = false;
             this.gvList.OptionsView.ShowGroupPanel = false;
+            this.gvList.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvList_RowClick);
             this.gvList.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gvList_CustomColumnDisplayText);
             // 
             // colNo
@@ -256,22 +298,22 @@
             this.colFloor.VisibleIndex = 5;
             this.colFloor.Width = 59;
             // 
-            // colDear
+            // colDeal
             // 
-            this.colDear.AppearanceCell.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.colDear.AppearanceCell.Options.UseFont = true;
-            this.colDear.AppearanceCell.Options.UseTextOptions = true;
-            this.colDear.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colDear.AppearanceHeader.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.colDear.AppearanceHeader.Options.UseFont = true;
-            this.colDear.AppearanceHeader.Options.UseTextOptions = true;
-            this.colDear.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colDear.Caption = "거래날짜";
-            this.colDear.FieldName = "Dear";
-            this.colDear.Name = "colDear";
-            this.colDear.Visible = true;
-            this.colDear.VisibleIndex = 7;
-            this.colDear.Width = 217;
+            this.colDeal.AppearanceCell.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.colDeal.AppearanceCell.Options.UseFont = true;
+            this.colDeal.AppearanceCell.Options.UseTextOptions = true;
+            this.colDeal.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDeal.AppearanceHeader.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.colDeal.AppearanceHeader.Options.UseFont = true;
+            this.colDeal.AppearanceHeader.Options.UseTextOptions = true;
+            this.colDeal.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDeal.Caption = "거래날짜";
+            this.colDeal.FieldName = "Deal";
+            this.colDeal.Name = "colDeal";
+            this.colDeal.Visible = true;
+            this.colDeal.VisibleIndex = 7;
+            this.colDeal.Width = 217;
             // 
             // colDealYear
             // 
@@ -343,6 +385,7 @@
             this.colDealAmount.AppearanceHeader.Options.UseTextOptions = true;
             this.colDealAmount.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colDealAmount.Caption = "거래금액";
+            this.colDealAmount.ColumnEdit = this.repositoryItemDealAmount;
             this.colDealAmount.FieldName = "DealAmount";
             this.colDealAmount.Name = "colDealAmount";
             this.colDealAmount.Visible = true;
@@ -411,6 +454,18 @@
             this.colCancelDealType.VisibleIndex = 10;
             this.colCancelDealType.Width = 221;
             // 
+            // splashScreenManager
+            // 
+            this.splashScreenManager.ClosingDelay = 500;
+            // 
+            // repositoryItemDealAmount
+            // 
+            this.repositoryItemDealAmount.AutoHeight = false;
+            this.repositoryItemDealAmount.Mask.EditMask = "N0";
+            this.repositoryItemDealAmount.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.repositoryItemDealAmount.Mask.UseMaskAsDisplayFormat = true;
+            this.repositoryItemDealAmount.Name = "repositoryItemDealAmount";
+            // 
             // ListViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -424,11 +479,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtApartmentName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboLAWD_CD.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deDEAL_YMD.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deDEAL_YMD.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDealAmount)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -455,8 +512,13 @@
         private DevExpress.XtraEditors.DateEdit deDEAL_YMD;
         private DevExpress.XtraEditors.ImageComboBoxEdit comboLAWD_CD;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraGrid.Columns.GridColumn colDear;
+        private DevExpress.XtraGrid.Columns.GridColumn colDeal;
         private DevExpress.XtraGrid.Columns.GridColumn colDealYear;
         private DevExpress.XtraGrid.Columns.GridColumn colNo;
+        private DevExpress.XtraEditors.TextEdit txtApartmentName;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager;
+        private DevExpress.XtraEditors.SimpleButton btnTrendChart;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemDealAmount;
     }
 }

@@ -1,5 +1,4 @@
-﻿using DevExpress.XtraEditors;
-using DevExpress.XtraSplashScreen;
+﻿using DevExpress.XtraSplashScreen;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,14 +9,14 @@ using WinformMVCExample.CommonInterface;
 
 namespace ApartmentViewApp.View
 {
-    interface IListViewForm : IControllerable, IMessageable
+    interface ITrendViewForm : IControllerable, IMessageable
     {
         DateTime DEAL_YMD { get; }
         object LAWD_CD { get; }
         string ApartmentName { get; set; }
         SplashScreenManager splash { get; set; }
 
-        void LoadGridView(DataTable dtApartment);
+        void LoadChartView(DataTable dtApartment, List<string> distApartmentList);
         void SetLAWDComboBox(DataTable dtLAWD);
     }
 }

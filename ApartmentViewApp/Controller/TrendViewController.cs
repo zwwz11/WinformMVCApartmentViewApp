@@ -9,30 +9,29 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Xml;
-using WinformMVCExample.CommonInterface;
 using WinformMVCExample.Controller;
 
 namespace ApartmentViewApp.Controller
 {
-    class ListViewController : IController
+    class TrendViewController : IController
     {
-        private IListViewForm view = null;
+        private ITrendViewForm view = null;
 
         private readonly string targetURL = ConfigurationManager.AppSettings["TargetURL"];
         private readonly string serviceKey = ConfigurationManager.AppSettings["ServiceKey"];
         private DataTable dtApartment = new DataTable();
 
-        public ListViewController(IListViewForm view)
+        public TrendViewController(ITrendViewForm view)
         {
             this.view = view;
             this.view.SetController(this);
             this.view.SetLAWDComboBox(eLAWD.GetLAWD_CDToTable(eLAWD.eArea.eLAWD_CD_BUSAN));
-            
+
             SetApartmentTableColumns();
             Search();
         }
+
         public void Search()
         {
             if (!view.splash.IsSplashFormVisible)
@@ -91,7 +90,8 @@ namespace ApartmentViewApp.Controller
 
                     ParseApartmentToTable(apartmentList);
                 }
-                view.LoadGridView(dtApartment);
+                List<string> distApartmentList = dtApartment.AsEnumerable().Select(x => $"{x[nameof(Apartment.ApartmentName)]}").Distinct().ToList();
+                view.LoadChartView(dtApartment, distApartmentList);
             }
             catch (Exception ex)
             {
@@ -103,14 +103,6 @@ namespace ApartmentViewApp.Controller
                     view.splash.CloseWaitForm();
             }
         }
-        public void LoadTrendViewForm()
-        {
-            TrendViewForm form = new TrendViewForm();
-            TrendViewController trendViewController = new TrendViewController(form);
-            form.StartPosition = FormStartPosition.CenterParent;
-            form.ShowDialog();
-        }
-
 
         private void ParseApartmentToTable(List<Apartment> apartmentList)
         {

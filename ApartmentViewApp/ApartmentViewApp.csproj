@@ -33,10 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Charts.v16.1.Core, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v16.1.Core, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Sparkline.v16.1.Core, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v16.1.UI, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v16.1.Wizard, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraEditors.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraGrid.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -44,6 +49,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,14 +61,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Comparer\StringDateComparer.cs" />
     <Compile Include="Common\Interface\IController.cs" />
     <Compile Include="Common\Interface\IControllerable.cs" />
     <Compile Include="Common\Interface\IMessageable.cs" />
     <Compile Include="Controller\ListViewController.cs" />
+    <Compile Include="Controller\TrendViewController.cs" />
     <Compile Include="Model\Apartment.cs" />
     <Compile Include="Model\ApartmentRequestParam.cs" />
     <Compile Include="Model\eLAWD.cs" />
     <Compile Include="View\IListViewForm.cs" />
+    <Compile Include="View\ITrendViewForm.cs" />
     <Compile Include="View\ListViewForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +80,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\WaitViews\SearchWaitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\WaitViews\SearchWaitForm.Designer.cs">
+      <DependentUpon>SearchWaitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\TrendViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\TrendViewForm.Designer.cs">
+      <DependentUpon>TrendViewForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="View\ListViewForm.resx">
       <DependentUpon>ListViewForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -84,6 +105,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\WaitViews\SearchWaitForm.resx">
+      <DependentUpon>SearchWaitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TrendViewForm.resx">
+      <DependentUpon>TrendViewForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
