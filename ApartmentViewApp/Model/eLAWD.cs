@@ -9,8 +9,6 @@ namespace ApartmentViewApp.Model
 {
     class eLAWD
     {
-        private static DataTable dtLAWD = new DataTable();
-
 
         public enum eArea
         {
@@ -46,9 +44,10 @@ namespace ApartmentViewApp.Model
             switch (area)
             {
                 case eArea.eLAWD_CD_BUSAN:
-                    foreach (eLAWD_CD_BUSAN code in Enum.GetValues(typeof(eLAWD_CD_BUSAN)))
-                        dtLAWD.Rows.Add(new object[] { code.GetHashCode(), code.ToString() });
+                    List<eLAWD_CD_BUSAN> list = Enum.GetValues(typeof(eLAWD_CD_BUSAN)).OfType<eLAWD_CD_BUSAN>().ToList();
+                    list.ForEach(code => dtLAWD.Rows.Add(new object[] { code.GetHashCode(), code.ToString() }));
                     break;
+
             }
 
             return dtLAWD;
