@@ -28,8 +28,6 @@ namespace ApartmentViewApp
     public partial class ListViewForm : XtraForm, IListViewForm
     {
         private ListViewController controller;
-        private string targetURL = string.Empty;
-        private string serviceKey = string.Empty;
 
         public DateTime DEAL_YMD => deDEAL_YMD.DateTime;
         public object LAWD_CD => comboLAWD_CD.EditValue;

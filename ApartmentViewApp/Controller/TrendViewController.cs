@@ -1,4 +1,5 @@
-﻿using ApartmentViewApp.Model;
+﻿using ApartmentViewApp.Common.Utill;
+using ApartmentViewApp.Model;
 using ApartmentViewApp.View;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace ApartmentViewApp.Controller
         private ITrendViewForm view = null;
 
         private readonly string targetURL = ConfigurationManager.AppSettings["TargetURL"];
-        private readonly string serviceKey = ConfigurationManager.AppSettings["ServiceKey"];
+        private readonly string serviceKey = AESHelper.Decrypt(ConfigurationManager.AppSettings["ServiceKey"]);
         private DataTable dtApartment = new DataTable();
 
         public TrendViewController(ITrendViewForm view)

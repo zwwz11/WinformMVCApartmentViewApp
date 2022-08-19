@@ -65,6 +65,7 @@
     <Compile Include="Common\Interface\IController.cs" />
     <Compile Include="Common\Interface\IControllerable.cs" />
     <Compile Include="Common\Interface\IMessageable.cs" />
+    <Compile Include="Common\Utill\AESHelper.cs" />
     <Compile Include="Controller\ListViewController.cs" />
     <Compile Include="Controller\TrendViewController.cs" />
     <Compile Include="Model\Apartment.cs" />
@@ -127,6 +128,7 @@
   <ItemGroup>
     <Content Include="ServiceKey발급받는법.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
