@@ -19,9 +19,6 @@ namespace ApartmentViewApp.Controller
     {
         private ITrendViewForm view = null;
 
-        private readonly string targetURL = ConfigurationManager.AppSettings["TargetURL"];
-        private readonly string serviceKey = AESHelper.Decrypt(ConfigurationManager.AppSettings["ServiceKey"]);
-
         public TrendViewController(ITrendViewForm view)
         {
             this.view = view;

@@ -1,5 +1,4 @@
-﻿using ApartmentViewApp.Common.Utill;
-using ApartmentViewApp.Model;
+﻿using ApartmentViewApp.Model;
 using ApartmentViewApp.View;
 using DevExpress.XtraGrid;
 using DevExpress.XtraPrinting;
@@ -16,6 +15,7 @@ using System.Windows.Forms;
 using System.Xml;
 using WinformMVCExample.CommonInterface;
 using WinformMVCExample.Controller;
+using AESHelper;
 
 namespace ApartmentViewApp.Controller
 {
@@ -24,7 +24,7 @@ namespace ApartmentViewApp.Controller
         private IListViewForm view = null;
 
         private readonly string targetURL = ConfigurationManager.AppSettings["TargetURL"];
-        private readonly string serviceKey = AESHelper.Decrypt(ConfigurationManager.AppSettings["ServiceKey"]);
+        private readonly string serviceKey = AESHelper.AESHelper.Decrypt(ConfigurationManager.AppSettings["ServiceKey"]);
         private DataTable dtApartment = new DataTable();
 
         public ListViewController(IListViewForm view)
