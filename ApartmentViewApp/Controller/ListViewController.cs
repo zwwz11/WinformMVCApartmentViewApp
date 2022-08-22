@@ -1,6 +1,8 @@
 ﻿using ApartmentViewApp.Common.Utill;
 using ApartmentViewApp.Model;
 using ApartmentViewApp.View;
+using DevExpress.XtraGrid;
+using DevExpress.XtraPrinting;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -111,6 +113,23 @@ namespace ApartmentViewApp.Controller
             TrendViewController trendViewController = new TrendViewController(form);
             form.StartPosition = FormStartPosition.CenterParent;
             form.ShowDialog();
+        }
+        public void ExportExcel(GridControl gridControl)
+        {
+            string fileName;
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "저장경로를 지정하세요.";
+            saveFileDialog.OverwritePrompt = true;
+            saveFileDialog.Filter = "Excel File(*.xlsx)|*.xlsx|Excel File(*.xls)|*.xls";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                fileName = saveFileDialog.FileName;
+                XlsxExportOptionsEx op = new XlsxExportOptionsEx();
+                op.BandedLayoutMode = DevExpress.Export.BandedLayoutMode.LinearColumns;
+                op.TextExportMode = TextExportMode.Text;
+                gridControl.ExportToXlsx(fileName, op);
+            }
         }
 
 

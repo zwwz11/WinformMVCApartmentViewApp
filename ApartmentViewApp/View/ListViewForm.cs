@@ -82,6 +82,10 @@ namespace ApartmentViewApp
         {
             controller.Search();
         }
+        private void btnExportExcel_Click(object sender, EventArgs e)
+        {
+            controller.ExportExcel(gcList);
+        }
         private void gvList_RowClick(object sender, RowClickEventArgs e)
         {
             if(e.Clicks > 1)
@@ -98,5 +102,6 @@ namespace ApartmentViewApp
 
             e.DisplayText = $"{e.ListSourceRowIndex + 1}";
         }
+
     }
 }

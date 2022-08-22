@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnExportExcel = new DevExpress.XtraEditors.SimpleButton();
             this.txtApartmentName = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.comboLAWD_CD = new DevExpress.XtraEditors.ImageComboBoxEdit();
@@ -55,6 +56,7 @@
             this.colCancelDealDay = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCancelDealType = new DevExpress.XtraGrid.Columns.GridColumn();
             this.splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ApartmentViewApp.View.SearchWaitForm), true, true);
+            this.repositoryItemNO = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtApartmentName.Properties)).BeginInit();
@@ -64,10 +66,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDealAmount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemNO)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.btnExportExcel);
             this.panelControl1.Controls.Add(this.txtApartmentName);
             this.panelControl1.Controls.Add(this.labelControl3);
             this.panelControl1.Controls.Add(this.comboLAWD_CD);
@@ -80,6 +84,19 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1150, 46);
             this.panelControl1.TabIndex = 0;
+            // 
+            // btnExportExcel
+            // 
+            this.btnExportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExportExcel.Appearance.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.btnExportExcel.Appearance.Options.UseFont = true;
+            this.btnExportExcel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnExportExcel.Location = new System.Drawing.Point(868, 8);
+            this.btnExportExcel.Name = "btnExportExcel";
+            this.btnExportExcel.Size = new System.Drawing.Size(132, 30);
+            this.btnExportExcel.TabIndex = 7;
+            this.btnExportExcel.Text = "엑셀 출력";
+            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
             // 
             // txtApartmentName
             // 
@@ -157,6 +174,8 @@
             // btnSearch
             // 
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSearch.Appearance.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.btnSearch.Appearance.Options.UseFont = true;
             this.btnSearch.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnSearch.Location = new System.Drawing.Point(1006, 8);
             this.btnSearch.Name = "btnSearch";
@@ -172,7 +191,8 @@
             this.gcList.MainView = this.gvList;
             this.gcList.Name = "gcList";
             this.gcList.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemDealAmount});
+            this.repositoryItemDealAmount,
+            this.repositoryItemNO});
             this.gcList.Size = new System.Drawing.Size(1150, 446);
             this.gcList.TabIndex = 1;
             this.gcList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -214,6 +234,7 @@
             this.colNo.AppearanceHeader.Options.UseTextOptions = true;
             this.colNo.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colNo.Caption = "순번";
+            this.colNo.ColumnEdit = this.repositoryItemNO;
             this.colNo.FieldName = "No";
             this.colNo.Name = "colNo";
             this.colNo.Visible = true;
@@ -453,6 +474,12 @@
             // 
             this.splashScreenManager.ClosingDelay = 500;
             // 
+            // repositoryItemNO
+            // 
+            this.repositoryItemNO.AutoHeight = false;
+            this.repositoryItemNO.ExportMode = DevExpress.XtraEditors.Repository.ExportMode.DisplayText;
+            this.repositoryItemNO.Name = "repositoryItemNO";
+            // 
             // ListViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -473,6 +500,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDealAmount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemNO)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -506,5 +534,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemDealAmount;
+        private DevExpress.XtraEditors.SimpleButton btnExportExcel;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemNO;
     }
 }
