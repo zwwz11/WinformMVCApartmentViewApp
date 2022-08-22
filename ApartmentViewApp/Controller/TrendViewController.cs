@@ -21,7 +21,6 @@ namespace ApartmentViewApp.Controller
 
         private readonly string targetURL = ConfigurationManager.AppSettings["TargetURL"];
         private readonly string serviceKey = AESHelper.Decrypt(ConfigurationManager.AppSettings["ServiceKey"]);
-        private DataTable dtApartment = new DataTable();
 
         public TrendViewController(ITrendViewForm view)
         {

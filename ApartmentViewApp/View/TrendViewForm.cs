@@ -22,15 +22,17 @@ namespace ApartmentViewApp.View
     public partial class TrendViewForm : XtraForm, ITrendViewForm
     {
         private TrendViewController controller = null;
-
         public readonly DataTable dtApartmentByName;
         public readonly string apartmentName;
+
+        /* 인터페이스 프로퍼티 */
         public SplashScreenManager splash
         {
             get { return splashScreenManager; }
             set { splashScreenManager = value; }
         }
 
+        /* Controller 세팅 및 공통 인터페이스 기능 */
         public TrendViewForm()
         {
             InitializeComponent();
@@ -49,7 +51,7 @@ namespace ApartmentViewApp.View
             MessageBox.Show(message);
         }
 
-
+        /* 인터페이스 메소드 */
         public void LoadChartView(DataTable dtApartmentByName, string apartmentName)
         {
             chart.Series.Clear();
@@ -68,6 +70,7 @@ namespace ApartmentViewApp.View
             }
         }
 
+        /* 이벤트 */
         private void TrendViewForm_Load(object sender, EventArgs e)
         {
             controller.Load(dtApartmentByName, apartmentName);

@@ -29,6 +29,7 @@ namespace ApartmentViewApp
     {
         private ListViewController controller;
 
+        /* 인터페이스 프로퍼티 */
         public DateTime DEAL_YMD => deDEAL_YMD.DateTime;
         public object LAWD_CD => comboLAWD_CD.EditValue;
         public string ApartmentName
@@ -42,12 +43,13 @@ namespace ApartmentViewApp
             set { splashScreenManager = value; }
         }
 
+
+        /* Controller 세팅 및 공통 인터페이스 기능 */
         public ListViewForm()
         {
             InitializeComponent();
             deDEAL_YMD.DateTime = DateTime.Now;
         }
-
         public void ShowMessageBox(string message)
         {
             MessageBox.Show(message);
@@ -56,6 +58,8 @@ namespace ApartmentViewApp
         {
             this.controller = controller as ListViewController;
         }
+
+        /* 인터페이스 메소드 */
         public void LoadGridView(DataTable dtApartment)
         {
             gcList.DataSource = dtApartment;
@@ -73,6 +77,7 @@ namespace ApartmentViewApp
         }
 
 
+        /* 이벤트 */
         private void btnSearch_Click(object sender, EventArgs e)
         {
             controller.Search();
@@ -93,6 +98,5 @@ namespace ApartmentViewApp
 
             e.DisplayText = $"{e.ListSourceRowIndex + 1}";
         }
-
     }
 }

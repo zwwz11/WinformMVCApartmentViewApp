@@ -30,7 +30,7 @@ namespace ApartmentViewApp.Controller
             this.view = view;
             this.view.SetController(this);
             this.view.SetLAWDComboBox(eLAWD.GetLAWD_CDToTable(eLAWD.eArea.eLAWD_CD_BUSAN));
-            
+
             SetApartmentTableColumns();
             Search();
         }
