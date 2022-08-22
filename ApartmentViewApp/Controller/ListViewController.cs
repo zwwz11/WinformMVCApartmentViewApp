@@ -104,9 +104,10 @@ namespace ApartmentViewApp.Controller
                     view.splash.CloseWaitForm();
             }
         }
-        public void LoadTrendViewForm()
+        public void LoadTrendViewForm(DataTable dtApartment, string apartmentName)
         {
-            TrendViewForm form = new TrendViewForm();
+            DataTable dtApartmentByName = dtApartment.AsEnumerable().Where(x => $"{x[nameof(Apartment.ApartmentName)]}" == apartmentName).CopyToDataTable();
+            TrendViewForm form = new TrendViewForm(dtApartmentByName, apartmentName);
             TrendViewController trendViewController = new TrendViewController(form);
             form.StartPosition = FormStartPosition.CenterParent;
             form.ShowDialog();

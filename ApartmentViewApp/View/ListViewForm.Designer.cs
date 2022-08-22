@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.btnTrendChart = new DevExpress.XtraEditors.SimpleButton();
             this.txtApartmentName = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.comboLAWD_CD = new DevExpress.XtraEditors.ImageComboBoxEdit();
@@ -50,12 +49,12 @@
             this.colDealDay = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDealAmount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemDealAmount = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.colJibun = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colRegionalCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCancelDealDay = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCancelDealType = new DevExpress.XtraGrid.Columns.GridColumn();
             this.splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ApartmentViewApp.View.SearchWaitForm), true, true);
-            this.repositoryItemDealAmount = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtApartmentName.Properties)).BeginInit();
@@ -69,7 +68,6 @@
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.btnTrendChart);
             this.panelControl1.Controls.Add(this.txtApartmentName);
             this.panelControl1.Controls.Add(this.labelControl3);
             this.panelControl1.Controls.Add(this.comboLAWD_CD);
@@ -82,17 +80,6 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1150, 46);
             this.panelControl1.TabIndex = 0;
-            // 
-            // btnTrendChart
-            // 
-            this.btnTrendChart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTrendChart.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnTrendChart.Location = new System.Drawing.Point(868, 8);
-            this.btnTrendChart.Name = "btnTrendChart";
-            this.btnTrendChart.Size = new System.Drawing.Size(132, 30);
-            this.btnTrendChart.TabIndex = 7;
-            this.btnTrendChart.Text = "Trend Chart";
-            this.btnTrendChart.Click += new System.EventHandler(this.btnTrendChart_Click);
             // 
             // txtApartmentName
             // 
@@ -392,6 +379,14 @@
             this.colDealAmount.VisibleIndex = 8;
             this.colDealAmount.Width = 148;
             // 
+            // repositoryItemDealAmount
+            // 
+            this.repositoryItemDealAmount.AutoHeight = false;
+            this.repositoryItemDealAmount.Mask.EditMask = "N0";
+            this.repositoryItemDealAmount.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.repositoryItemDealAmount.Mask.UseMaskAsDisplayFormat = true;
+            this.repositoryItemDealAmount.Name = "repositoryItemDealAmount";
+            // 
             // colJibun
             // 
             this.colJibun.AppearanceCell.Font = new System.Drawing.Font("맑은 고딕", 9F);
@@ -458,14 +453,6 @@
             // 
             this.splashScreenManager.ClosingDelay = 500;
             // 
-            // repositoryItemDealAmount
-            // 
-            this.repositoryItemDealAmount.AutoHeight = false;
-            this.repositoryItemDealAmount.Mask.EditMask = "N0";
-            this.repositoryItemDealAmount.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.repositoryItemDealAmount.Mask.UseMaskAsDisplayFormat = true;
-            this.repositoryItemDealAmount.Name = "repositoryItemDealAmount";
-            // 
             // ListViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -518,7 +505,6 @@
         private DevExpress.XtraEditors.TextEdit txtApartmentName;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager;
-        private DevExpress.XtraEditors.SimpleButton btnTrendChart;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemDealAmount;
     }
 }

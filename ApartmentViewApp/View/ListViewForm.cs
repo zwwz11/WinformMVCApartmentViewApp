@@ -77,15 +77,13 @@ namespace ApartmentViewApp
         {
             controller.Search();
         }
-        private void btnTrendChart_Click(object sender, EventArgs e)
-        {
-            controller.LoadTrendViewForm();
-        }
         private void gvList_RowClick(object sender, RowClickEventArgs e)
         {
             if(e.Clicks > 1)
             {
-
+                DataTable dtApartment = gcList.DataSource as DataTable;
+                string apartmentName = $"{gvList.GetFocusedRowCellValue("ApartmentName")}";
+                controller.LoadTrendViewForm(dtApartment, apartmentName);
             }
         }
         private void gvList_CustomColumnDisplayText(object sender, CustomColumnDisplayTextEventArgs e)

@@ -23,13 +23,8 @@ namespace ApartmentViewApp.View
     {
         private TrendViewController controller = null;
 
-        public DateTime DEAL_YMD => deDEAL_YMD.DateTime;
-        public object LAWD_CD => comboLAWD_CD.EditValue;
-        public string ApartmentName
-        {
-            get { return txtApartmentName.Text; }
-            set { txtApartmentName.Text = value; }
-        }
+        public readonly DataTable dtApartmentByName;
+        public readonly string apartmentName;
         public SplashScreenManager splash
         {
             get { return splashScreenManager; }
@@ -39,12 +34,11 @@ namespace ApartmentViewApp.View
         public TrendViewForm()
         {
             InitializeComponent();
-
-            deDEAL_YMD.DateTime = DateTime.Now;
         }
-        public TrendViewForm(DataTable dtApartment) : this()
+        public TrendViewForm(DataTable dtApartmentByName, string apartmentName) : this()
         {
-
+            this.dtApartmentByName = dtApartmentByName;
+            this.apartmentName = apartmentName;
         }
         void IControllerable.SetController(IController controller)
         {
@@ -56,19 +50,16 @@ namespace ApartmentViewApp.View
         }
 
 
-        public void LoadChartView(DataTable dtApartment, List<string> distApartmentList)
+        public void LoadChartView(DataTable dtApartmentByName, string apartmentName)
         {
             chart.Series.Clear();
-            foreach(string apartmentName in distApartmentList)
-            {
-                Series series = new Series(apartmentName, ViewType.Line);
-                DataTable dtFilterApartment = dtApartment.AsEnumerable().Where(x => $"{x[nameof(Apartment.ApartmentName)]}" == apartmentName).CopyToDataTable();
-                series.DataSource = dtFilterApartment;
-                series.ArgumentScaleType = ScaleType.Qualitative;
-                series.ArgumentDataMember = dtFilterApartment.Columns[nameof(Apartment.Deal)].ColumnName;
-                series.ValueDataMembers.AddRange(new string[] { dtFilterApartment.Columns[nameof(Apartment.DealAmount)].ColumnName });
-                chart.Series.Add(series);
-            }
+            
+            Series series = new Series(apartmentName, ViewType.Line);
+            series.DataSource = dtApartmentByName;
+            series.ArgumentScaleType = ScaleType.Qualitative;
+            series.ArgumentDataMember = dtApartmentByName.Columns[nameof(Apartment.Deal)].ColumnName;
+            series.ValueDataMembers.AddRange(new string[] { dtApartmentByName.Columns[nameof(Apartment.DealAmount)].ColumnName });
+            chart.Series.Add(series);
 
             XYDiagram diagram = chart.Diagram as XYDiagram;
             if (diagram != null)
@@ -76,23 +67,10 @@ namespace ApartmentViewApp.View
                 diagram.AxisX.QualitativeScaleComparer = new StringDateComparer();
             }
         }
-        public void SetLAWDComboBox(DataTable dtLAWD)
+
+        private void TrendViewForm_Load(object sender, EventArgs e)
         {
-            foreach (DataRow row in dtLAWD.Rows)
-            {
-                ImageComboBoxItem item = new ImageComboBoxItem();
-                item.Description = $"{row["CodeName"]}";
-                item.Value = $"{row["Code"]}";
-                comboLAWD_CD.Properties.Items.Add(item);
-            }
-            comboLAWD_CD.SelectedIndex = 0;
-        }
-
-
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            controller.Search();
+            controller.Load(dtApartmentByName, apartmentName);
         }
     }
 }

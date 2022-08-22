@@ -11,12 +11,8 @@ namespace ApartmentViewApp.View
 {
     interface ITrendViewForm : IControllerable, IMessageable
     {
-        DateTime DEAL_YMD { get; }
-        object LAWD_CD { get; }
-        string ApartmentName { get; set; }
         SplashScreenManager splash { get; set; }
 
-        void LoadChartView(DataTable dtApartment, List<string> distApartmentList);
-        void SetLAWDComboBox(DataTable dtLAWD);
+        void LoadChartView(DataTable dtApartmentByName, string apartmentName);
     }
 }
