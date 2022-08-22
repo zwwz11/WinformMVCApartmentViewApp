@@ -1,5 +1,4 @@
-﻿using ApartmentViewApp.Common.Utill;
-using ApartmentViewApp.Model;
+﻿using ApartmentViewApp.Model;
 using ApartmentViewApp.View;
 using System;
 using System.Collections.Generic;
